@@ -58,7 +58,7 @@ const UiModal: React.FC<UiProps> = ({ open, close }) => {
                 >
                   Give your card a title
                 </FormLabel>
-                <Input Text={"Ezekiel Turaki"} fill="filled" />
+                <Input Text={"E.g Christmas, December"} fill="filled" />
                 <FormLabel
                   pt={"15px"}
                   color="#FFFFFF"
@@ -68,7 +68,7 @@ const UiModal: React.FC<UiProps> = ({ open, close }) => {
                 >
                   Full Name
                 </FormLabel>
-                <Input Text={"E.g Christmas, December"} fill="filled" />
+                <Input Text={"Ezekiel Turaki"} fill="filled" />
                 <FormLabel
                   pt={"15px"}
                   color="#FFFFFF"
