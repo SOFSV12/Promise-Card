@@ -2,14 +2,21 @@ import React from "react";
 import { Box, Input, FormControl } from "@chakra-ui/react";
 
 interface InputProps {
-  Text: string;
+  Text?: string;
   fill?: string;
   bColor?: string;
+  name?: string;
 }
 
-const InputText: React.FC<InputProps> = ({ Text, fill, bColor }) => {
+const InputText: React.FC<InputProps> = ({ Text, fill, bColor, name }) => {
   return (
-    <Box borderBottom="2px" borderColor={bColor}>
+    <Box
+      borderBottom="2px"
+      borderColor={bColor}
+      border="2px"
+      borderTop={"0px"}
+      m={"auto"}
+    >
       <form action="">
         <FormControl>
           <Input
@@ -19,6 +26,7 @@ const InputText: React.FC<InputProps> = ({ Text, fill, bColor }) => {
             border={"0px"}
             type="text"
             variant={fill}
+            name={name}
           />
         </FormControl>
       </form>

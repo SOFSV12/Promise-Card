@@ -1,31 +1,44 @@
-import React from "react";
+import React, { FC } from "react";
 import _ from "lodash";
 import { Box } from "@chakra-ui/react";
 import InputText from "../Input/index";
+import Rebutton from "../Button";
 
-const WishList = () => {
+interface WishlistProps {
+  open: Function;
+}
+
+const WishList: FC<WishlistProps> = ({ open }) => {
   return (
-    <Box
-      as="section"
-      border="2px"
-      borderBottom={"0px"}
-      borderColor="black"
-      m={"auto"}
-    >
-      <Box
-        bg={"white"}
-        p={"5px"}
-        pl={"20px"}
-        textAlign={"left"}
-        borderBottom="2px"
-        borderColor="black"
-      >
-        ITEM
-      </Box>
-      <Box>
-        {_.range(8).map((items: any, index: number) => (
-          <InputText key={index} Text={"Add Item"} bColor="black" />
-        ))}
+    <Box>
+      <Box as="section">
+        <Box
+          bg={"white"}
+          p={"5px"}
+          pl={"20px"}
+          textAlign={"left"}
+          border="2px"
+          borderColor="black"
+        >
+          ITEM
+        </Box>
+        <Box>
+          <form action="">
+            {_.range(8).map((item: any) => (
+              <InputText
+                key={item}
+                Text={"Add Item"}
+                bColor="black"
+                name={`item${item}`}
+              />
+            ))}
+            <Rebutton
+              open={open}
+              innerText="GENERATE PROMISE CARD"
+              color="#FFFFFF"
+            />
+          </form>
+        </Box>
       </Box>
     </Box>
   );
