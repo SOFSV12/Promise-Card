@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { useFormikContext } from "formik";
-import { Box, Input, FormControl } from "@chakra-ui/react";
+import { Box, Input } from "@chakra-ui/react";
 
 interface InputProps {
   Text?: string;
@@ -27,19 +27,17 @@ const InputText: React.FC<InputProps> = ({
       borderTop={"0px"}
       m={"auto"}
     >
-      <FormControl>
-        <Input
-          placeholder={Text}
-          size="md"
-          focusBorderColor="white"
-          border={"0px"}
-          type="text"
-          variant={fill}
-          name={name}
-          value={value}
-          onChange={onChange}
-        />
-      </FormControl>
+      <Input
+        placeholder={Text}
+        size="md"
+        focusBorderColor="white"
+        border={"0px"}
+        type="text"
+        variant={fill}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
     </Box>
   );
 };
