@@ -13,6 +13,7 @@ interface WishlistProps {
 const WishList: FC<WishlistProps> = ({ open }) => {
   const formik = useFormik({
     initialValues: {},
+    validationSchema: userItemsSchema,
     onSubmit: (values) => {
       console.log(values);
       open();
