@@ -1,14 +1,23 @@
 import React, { FC } from "react";
-import _ from "lodash";
 import { Box } from "@chakra-ui/react";
 import InputText from "../Input/index";
 import Rebutton from "../Button";
+import { FormikFormInput } from "../Input/index";
+import { FormikProvider, useFormik } from "formik";
+import { userItemsSchema } from "../utils/validationSchema";
 
 interface WishlistProps {
   open: Function;
 }
 
 const WishList: FC<WishlistProps> = ({ open }) => {
+  const formik = useFormik({
+    initialValues: {},
+    onSubmit: (values) => {
+      console.log(values);
+      open();
+    },
+  });
   return (
     <Box>
       <Box as="section">
@@ -23,21 +32,23 @@ const WishList: FC<WishlistProps> = ({ open }) => {
           ITEM
         </Box>
         <Box>
-          <form action="">
-            {_.range(8).map((item: any) => (
-              <InputText
-                key={item}
-                Text={"Add Item"}
-                bColor="black"
-                name={`item${item}`}
+          <FormikProvider value={formik}>
+            <form autoComplete="off" onSubmit={formik.handleSubmit} noValidate>
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((item: any) => (
+                <FormikFormInput
+                  key={item}
+                  Text={"Add Item"}
+                  bColor="black"
+                  name={`item${item}`}
+                />
+              ))}
+              <Rebutton
+                innerText="GENERATE PROMISE CARD"
+                color="#FFFFFF"
+                type="submit"
               />
-            ))}
-            <Rebutton
-              open={open}
-              innerText="GENERATE PROMISE CARD"
-              color="#FFFFFF"
-            />
-          </form>
+            </form>
+          </FormikProvider>
         </Box>
       </Box>
     </Box>

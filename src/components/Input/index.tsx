@@ -1,4 +1,5 @@
-import React from "react";
+import React, { FC } from "react";
+import { useFormikContext } from "formik";
 import { Box, Input, FormControl } from "@chakra-ui/react";
 
 interface InputProps {
@@ -6,9 +7,18 @@ interface InputProps {
   fill?: string;
   bColor?: string;
   name?: string;
+  value?: string;
+  onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
 }
 
-const InputText: React.FC<InputProps> = ({ Text, fill, bColor, name }) => {
+const InputText: React.FC<InputProps> = ({
+  Text,
+  fill,
+  bColor,
+  name,
+  onChange,
+  value,
+}) => {
   return (
     <Box
       borderBottom="2px"
@@ -27,10 +37,30 @@ const InputText: React.FC<InputProps> = ({ Text, fill, bColor, name }) => {
             type="text"
             variant={fill}
             name={name}
+            value={value}
+            onChange={onChange}
           />
         </FormControl>
       </form>
     </Box>
+  );
+};
+
+export const FormikFormInput: FC<
+  InputProps & {
+    name: string;
+    value?: any;
+  }
+> = ({ name, value, ...rest }) => {
+  const { handleChange, values } = useFormikContext<any>();
+
+  return (
+    <InputText
+      {...rest}
+      name={name}
+      onChange={handleChange}
+      value={(values as any)[name as any] || value}
+    />
   );
 };
 

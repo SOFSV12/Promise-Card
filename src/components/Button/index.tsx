@@ -4,16 +4,17 @@ import { Button, Box } from "@chakra-ui/react";
 interface Iprops {
   innerText?: string;
   color: string;
-  open: Function;
+  open?: Function;
 }
 
 const Rebutton: React.FC<
   Iprops & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = ({ innerText, color, open }) => {
+> = ({ innerText, color, open, ...rest }) => {
   return (
     <Box pt={["20px", "20px", "30px"]}>
       <Button
-        onClick={() => open()}
+        {...rest}
+        onClick={open ? () => open() : () => {}}
         bg={color}
         fontSize={"md"}
         fontWeight={"normal"}
