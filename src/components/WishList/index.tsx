@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { Box } from "@chakra-ui/react";
-import InputText from "../Input/index";
 import Rebutton from "../Button";
 import { FormikFormInput } from "../Input/index";
 import { FormikProvider, useFormik } from "formik";

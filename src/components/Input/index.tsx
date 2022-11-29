@@ -27,21 +27,19 @@ const InputText: React.FC<InputProps> = ({
       borderTop={"0px"}
       m={"auto"}
     >
-      <form action="">
-        <FormControl>
-          <Input
-            placeholder={Text}
-            size="md"
-            focusBorderColor="white"
-            border={"0px"}
-            type="text"
-            variant={fill}
-            name={name}
-            value={value}
-            onChange={onChange}
-          />
-        </FormControl>
-      </form>
+      <FormControl>
+        <Input
+          placeholder={Text}
+          size="md"
+          focusBorderColor="white"
+          border={"0px"}
+          type="text"
+          variant={fill}
+          name={name}
+          value={value}
+          onChange={onChange}
+        />
+      </FormControl>
     </Box>
   );
 };
