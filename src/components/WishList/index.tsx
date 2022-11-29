@@ -1,31 +1,55 @@
-import React from "react";
-import _ from "lodash";
+import React, { FC } from "react";
 import { Box } from "@chakra-ui/react";
 import InputText from "../Input/index";
+import Rebutton from "../Button";
+import { FormikFormInput } from "../Input/index";
+import { FormikProvider, useFormik } from "formik";
+import { userItemsSchema } from "../utils/validationSchema";
 
-const WishList = () => {
+interface WishlistProps {
+  open: Function;
+}
+
+const WishList: FC<WishlistProps> = ({ open }) => {
+  const formik = useFormik({
+    initialValues: {},
+    onSubmit: (values) => {
+      console.log(values);
+      open();
+    },
+  });
   return (
-    <Box
-      as="section"
-      border="2px"
-      borderBottom={"0px"}
-      borderColor="black"
-      m={"auto"}
-    >
-      <Box
-        bg={"white"}
-        p={"5px"}
-        pl={"20px"}
-        textAlign={"left"}
-        borderBottom="2px"
-        borderColor="black"
-      >
-        ITEM
-      </Box>
-      <Box>
-        {_.range(8).map((items: any, index: number) => (
-          <InputText key={index} Text={"Add Item"} bColor="black" />
-        ))}
+    <Box>
+      <Box as="section">
+        <Box
+          bg={"white"}
+          p={"5px"}
+          pl={"20px"}
+          textAlign={"left"}
+          border="2px"
+          borderColor="black"
+        >
+          ITEM
+        </Box>
+        <Box>
+          <FormikProvider value={formik}>
+            <form autoComplete="off" onSubmit={formik.handleSubmit} noValidate>
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((item: any) => (
+                <FormikFormInput
+                  key={item}
+                  Text={"Add Item"}
+                  bColor="black"
+                  name={`item${item}`}
+                />
+              ))}
+              <Rebutton
+                innerText="GENERATE PROMISE CARD"
+                color="#FFFFFF"
+                type="submit"
+              />
+            </form>
+          </FormikProvider>
+        </Box>
       </Box>
     </Box>
   );

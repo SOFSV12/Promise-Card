@@ -5,9 +5,10 @@ interface ControlProps {
   yellow: Function;
   pink: Function;
   blue: Function;
+  current: string;
 }
 
-const Control: React.FC<ControlProps> = ({ yellow, pink, blue }) => {
+const Control: React.FC<ControlProps> = ({ yellow, pink, blue, current }) => {
   return (
     <Box pb={["5px", "5px", "10px"]}>
       <HStack justify={"center"}>
@@ -16,39 +17,33 @@ const Control: React.FC<ControlProps> = ({ yellow, pink, blue }) => {
           w={"20px"}
           borderRadius={"25px"}
           bg={"#FEDF58"}
-          _active={{
-            border: "1px",
-            borderColor: "black",
-          }}
           onClick={() => {
             yellow();
           }}
+          border={`${current === "yellow" ? "1px" : ""}`}
+          borderColor="#000000"
         ></Box>
         <Box
           h={"20px"}
           w={"20px"}
           borderRadius={"25px"}
           bg={"#FD97E0"}
-          _active={{
-            border: "1px",
-            borderColor: "black",
-          }}
           onClick={() => {
             pink();
           }}
+          border={`${current === "pink" ? "1px" : ""}`}
+          borderColor="#000000"
         ></Box>
         <Box
           h={"20px"}
           w={"20px"}
           borderRadius={"25px"}
           bg={"#73D0FD"}
-          _active={{
-            border: "1px",
-            borderColor: "black",
-          }}
           onClick={() => {
             blue();
           }}
+          border={`${current === "blue" ? "1px" : ""}`}
+          borderColor="#000000"
         ></Box>
       </HStack>
     </Box>
