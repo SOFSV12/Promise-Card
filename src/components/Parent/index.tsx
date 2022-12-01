@@ -8,32 +8,37 @@ import UiModal from "../Modal";
 
 const Parent = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [backGround, setBackGround] = useState("yellow");
+  const [backGround, setBackGround] = useState("#FEDF58");
 
   const bgYellowHandler = () => {
-    setBackGround("yellow");
+    setBackGround("#FEDF58");
   };
   const bgBlueHandler = () => {
-    setBackGround("blue");
+    setBackGround("#73D0FD");
   };
   const bgPinkHandler = () => {
-    setBackGround("pink");
+    setBackGround("#FD97E0");
   };
   return (
     <Box
       bg={`${
-        backGround === "yellow"
+        backGround === "#FEDF58"
           ? "#FEDF58"
-          : backGround === "pink"
+          : backGround === "#FD97E0"
           ? "#FD97E0"
-          : backGround === "blue" && "#73D0FD"
+          : backGround === "#73D0FD" && "#73D0FD"
       }`}
       h={"100vh"}
       w={["100%", "100%", "600px"]}
       px={["30px", "30px", "60px"]}
       mx="auto"
     >
-      <Header text1="Create your" text2="Promisecard" text3 color="#000000" />
+      <Header
+        text1="Create your"
+        text2="Promisecard"
+        text3="choose a color"
+        color="#000000"
+      />
       <Control
         yellow={bgYellowHandler}
         pink={bgPinkHandler}
@@ -41,7 +46,6 @@ const Parent = () => {
         current={backGround}
       />
       <WishList open={onOpen} />
-
       <UiModal close={onClose} open={isOpen} />
       <Foooter />
     </Box>

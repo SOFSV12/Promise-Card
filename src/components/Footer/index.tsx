@@ -1,6 +1,6 @@
 import React from "react";
 import { Text, Icon, Box, Flex } from "@chakra-ui/react";
-import Sponsor from "../../assets/svg/icon";
+import { Sponsor } from "../../assets/svg/icon";
 
 const Foooter = () => {
   return (

@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 import Rebutton from "../Button";
 import { FormikFormInput } from "../Input/index";
 import { FormikProvider, useFormik } from "formik";
-import { userItemsSchema } from "../utils/validationSchema";
+import { userItemsSchema } from "../../utils/validationSchema";
 
 interface WishlistProps {
   open: Function;

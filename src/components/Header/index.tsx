@@ -4,16 +4,17 @@ import { Box, Text } from "@chakra-ui/react";
 
 interface HeaderProps {
   text1: string;
-  text2: string;
+  text2?: string;
   color: string;
-  text3?: boolean;
+  text3?: string;
+  itc?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ text1, text2, text3, color }) => {
+const Header: React.FC<HeaderProps> = ({ text1, text2, text3, color, itc }) => {
   return (
     <Box
       as="header"
-      pt={["15px", "15px", "60px"]}
+      pt={["10px", "10px", "40px"]}
       textAlign={"center"}
       color={color}
     >
@@ -22,6 +23,7 @@ const Header: React.FC<HeaderProps> = ({ text1, text2, text3, color }) => {
         fontSize={"32px"}
         fontWeight={"normal"}
         lineHeight={"38.73px"}
+        fontStyle={`${itc && "italic"}`}
       >
         {text1}
       </Text>
@@ -33,16 +35,15 @@ const Header: React.FC<HeaderProps> = ({ text1, text2, text3, color }) => {
       >
         {text2}
       </Text>
-      {text3 && (
-        <Text
-          fontWeight={"normal"}
-          fontSize={"md"}
-          pt={["8px", "8px", "10px"]}
-          pb={["5px", "5px", "10px"]}
-        >
-          choose a color
-        </Text>
-      )}
+
+      <Text
+        fontWeight={"normal"}
+        fontSize={"md"}
+        pt={["8px", "8px", "10px"]}
+        pb={["5px", "5px", "10px"]}
+      >
+        {text3}
+      </Text>
     </Box>
   );
 };

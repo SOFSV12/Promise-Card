@@ -20,7 +20,7 @@ const Control: React.FC<ControlProps> = ({ yellow, pink, blue, current }) => {
           onClick={() => {
             yellow();
           }}
-          border={`${current === "yellow" ? "1px" : ""}`}
+          border={`${current === "#FEDF58" ? "1px" : ""}`}
           borderColor="#000000"
         ></Box>
         <Box
@@ -31,7 +31,7 @@ const Control: React.FC<ControlProps> = ({ yellow, pink, blue, current }) => {
           onClick={() => {
             pink();
           }}
-          border={`${current === "pink" ? "1px" : ""}`}
+          border={`${current === "#FD97E0" ? "1px" : ""}`}
           borderColor="#000000"
         ></Box>
         <Box
@@ -42,7 +42,7 @@ const Control: React.FC<ControlProps> = ({ yellow, pink, blue, current }) => {
           onClick={() => {
             blue();
           }}
-          border={`${current === "blue" ? "1px" : ""}`}
+          border={`${current === "#73D0FD" ? "1px" : ""}`}
           borderColor="#000000"
         ></Box>
       </HStack>

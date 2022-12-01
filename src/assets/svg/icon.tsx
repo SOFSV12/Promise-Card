@@ -1,6 +1,6 @@
 import React from "react";
 
-const Sponsor = () => {
+export const Sponsor = () => {
   return (
     <svg
       width="64"
@@ -45,4 +45,17 @@ const Sponsor = () => {
   );
 };
 
-export default Sponsor;
+export const CancelIcon = () => {
+  return (
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 20 20"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M19.5 1L1 19.5" stroke="black" />
+      <path d="M1 1L19.5 19.5" stroke="black" />
+    </svg>
+  );
+};
