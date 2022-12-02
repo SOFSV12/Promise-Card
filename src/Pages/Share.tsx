@@ -18,7 +18,6 @@ const Share = () => {
       bg={"#FEDF58"}
       h={"100vh"}
       w={["100%", "100%", "600px"]}
-      px={["30px", "30px", "100px"]}
       mx="auto"
       pt={"50px"}
       as="main"
@@ -30,7 +29,13 @@ const Share = () => {
         color={"#000000"}
       />
 
-      <Box mb={"15px"} borderBottom="2px" color={"#000000"}>
+      <Box
+        m="auto"
+        mb={"40px"}
+        color={"#000000"}
+        borderBottom="2px"
+        w={["300px", "300px", "400px"]}
+      >
         {[1, 2, 3, 4, 5, 6, 7, 8].map((item: any) => (
           <UserItem key={item} />
         ))}
@@ -47,13 +52,30 @@ const Share = () => {
       >
         create yours on promisecard.com.ng
       </Box>
-
-      <HStack justify={"space-between"} mt="20px">
-        <ListModal isOpen={isOpen} onToggle={onToggle} />
-        <Button bg="white" color="blue.500" size="md" onClick={goHome}>
-          create new card
-        </Button>
-      </HStack>
+      <Box
+        bg={"white"}
+        borderTopRadius={"25px"}
+        h={["150px", "150px", "200px"]}
+        w={"full"}
+        mt="20px"
+        px={"20px"}
+        pt={"10px"}
+      >
+        <HStack justify={"space-between"} mt="40px">
+          <ListModal isOpen={isOpen} onToggle={onToggle} />
+          <Button
+            bg="white"
+            size="md"
+            onClick={goHome}
+            p="24px"
+            borderRadius={"32px"}
+            color="black"
+            border={"1px"}
+          >
+            create new card
+          </Button>
+        </HStack>
+      </Box>
     </Box>
   );
 };
